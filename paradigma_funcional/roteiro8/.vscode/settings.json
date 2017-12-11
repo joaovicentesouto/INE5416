@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "iostream": "c",
+        "bitset": "c",
+        "initializer_list": "c",
+        "iterator": "c",
+        "memory": "c",
+        "string": "c",
+        "string_view": "c",
+        "utility": "c",
+        "math.h": "c"
+    }
+}

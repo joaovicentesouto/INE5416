@@ -1,0 +1,26 @@
+João Vicente Souto - 16105151
+
+Parte 1:
+
+1) A Lazy evaluation: a avaliação de uma expressão é postergado o maior tempo
+possível. É uma característica de muitas linguagens de programação funcionais
+permitindo que coleções "preguiçosas" entregam seus elementos conforme neces-
+sário, em vez de precalculá-los, oferecendo vários benefícios. Primeiro, você
+pode adiar cálculos caros até que eles sejam absolutamente necessários. Em
+segundo lugar, você pode criar coleções infinitas, que continuam fornecendo
+elementos, desde que continuem recebendo pedidos. Em terceiro lugar, o uso
+preguiçoso de conceitos funcionais como o mapa e o filtro permitem que você
+gere um código mais eficiente .
+
+2) Num mapeamento, uma função é aplicada a cada elemento de uma lista, de modo
+que uma nova lista modificada é retornada.
+Uma função para mapeamento deve receber os seguintes argumentos:
+  - Uma função de transformação.
+  - Uma lista de elementos a serem transformados.
+A linguagem Haskell possui a implementação de uma função de mapeamento,
+chamada map:
+  map :: (a -> b) -> [a] -> [b]
+  map f xs = [ f x | x <- xs ]
+
+3) O módulo Data.List lida com listas, provendo funções muito úteis que
+como map, filter, (++), (!!), (\\), head, last, tail, length, dentre muitas outras.

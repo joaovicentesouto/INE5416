@@ -1,0 +1,64 @@
+João Vicente Souto
+16105151
+
+Parte 1:
+
+1)  - Álgebra homológica: é o ramo da matemática que estuda os métodos da homologia e da
+cohomologia em um contexto geral. Esses conceitos se originaram na topologia algébrica.
+    Teorias cohomológicas têm sido definidas para muitos objetos diferentes como espaços
+topológicos, feixes, grupos, anéis, álgebras de Lie e C*-algebras.
+    - Topologia algébrica: faz a ligação entre a Topologia e a Álgebra e baseia-se na
+associação de estruturas algébricas a um espaço topológico com o objectivo de obter in-
+formações sobre esse espaço. Os exemplos básicos são os grupos de homologia e os grupos
+de homotopia, entre os quais se encontra o grupo fundamental. 
+
+2)  - Functor, em Teoria das categorias, é um mapeamento entre categorias que preserva
+estruturas. Os functores podem ser entendidos como homomorfismos na categoria de todas
+as categorias pequenas (ou seja, a categoria que tem como objetos todas as categorias
+compostas por objetos que são conjuntos).
+
+Um functor (covariante) F da categoria C para a categoria D:
+    - associa para cada objeto x em C um objeto F(x) em D;
+    - associa para cada morfismo f : x -> y um morfismo F(f) : F(x) -> F(y) tal que as
+      seguintes propriedades valem:
+        - F(id_x) = id_F(x)
+        - F(g ∘ f) = F(g) ∘ F(f) para todos os morfismos f : x -> y e g : y -> z
+
+3) Mônada em homologia: 
+    Seja C uma categoria, uma mônada em C consiste de um functor tal que T : C -> C e
+duas transformações naturais: η : 1C -> T e μ : T^2 -> T onde 1C é o functor de iden-
+dade de C e T^2 é o functor de T ∘ T de C em C, tal que respeitas as sequintes
+condições de coerência:
+    -   μ ∘ Tμ = μ ∘ μT => T3 -> T
+    -   μ ∘ Tη = μ ∘ ηT => T  -> T
+Assim, se H(F(x), y) = H(x, G(y)) e T = F(x) ∘ G(y), T é uma mônada.
+Em resumo, é como se a mônada mapeia o domínio de uma função no contradomínio da outra.
+
+4) Class Functor: é uma classe para tipos que podem ser mapeados e possuem único
+método definido como:
+    fmap :: (a -> b) -> f a -> f b
+
+Exemplo:
+    instance Functor Maybe where
+        fmap f Nothing  = Nothing
+        fmap f (Just x) = Just (f x)
+
+  Class Monad: ela define as operações básicas sobre uma mônada. Uma maneira pensar em uma
+mônada como um tipo de dados abstrato de ações. Expressões de fazer do Haskell fornecem
+uma sintaxe conveniente para escrever expressões monádica.
+  
+Exemplo: Maybe também pode ser visto como uma mônoda.
+
+    class  Monad m  where
+        (>>=)            :: m a -> (a -> m b) -> m b
+        (>>)             :: m a -> m b -> m b
+        return           :: a -> m a
+        fail             :: String -> m a
+
+Parte 2:
+
+A vantagem de se implementar o problema do cálculo da resistência utilizando mônadas é o
+controle sobre o efeitos colaterais de funções imperativas causam, ja descrevendo de forma
+monádica, se obtem um melhor controle do fluxo de computação e comparações desnecessárias,
+já que estamos lidando com funções e os valores são definidos pelo que eles são e não como
+os valores que podem assumir.
